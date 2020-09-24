@@ -1,7 +1,6 @@
 package com.example.android.house_list.data.response
 
 
-import com.example.android.house_list.data.response.Avatar
 import com.google.gson.annotations.SerializedName
 
 data class Owner(

@@ -1,7 +1,6 @@
-package com.example.android.house_list.data
+package com.example.android.house_list.data.network
 
 import com.example.android.house_list.data.response.CurrentList
-import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,14 +13,17 @@ interface HousePull {
         ): CurrentList
 
         companion object {
-            operator fun invoke(): HousePull{
+            operator fun invoke(
+                connectivityInterceptor: ConnectivityInterceptor
+            ): HousePull {
 
                 val okHttpClient = OkHttpClient.Builder()
+                    .addInterceptor (connectivityInterceptor)
                     .build()
 
                 return Retrofit.Builder()
                     .client(okHttpClient)
-                    .baseUrl("http://homehapp-api.jsteam.gaussx.com")
+                    .baseUrl("https://homehapp-api.jsteam.gaussx.com")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                     .create(HousePull::class.java)
