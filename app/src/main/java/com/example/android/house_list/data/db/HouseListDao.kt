@@ -13,7 +13,7 @@ interface HouseListDao {
     suspend fun insertHouses(houseEntry: List<DataX>)
 
     @Query ("SELECT * FROM houses_table")
-    fun getHouses(): LiveData<UsableHouseData>
+    fun getHouses(): LiveData<HouseData>
 
     @Query("SELECT * FROM houses_table WHERE id = :id ")
     suspend fun getHouseById(id: Int): DataX

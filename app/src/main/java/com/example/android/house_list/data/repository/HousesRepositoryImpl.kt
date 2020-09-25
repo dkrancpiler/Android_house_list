@@ -5,7 +5,6 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import com.example.android.house_list.data.db.HouseData
 import com.example.android.house_list.data.db.HouseListDao
-import com.example.android.house_list.data.db.UsableHouseData
 import com.example.android.house_list.data.network.HouseListDataSource
 import com.example.android.house_list.data.response.CurrentList
 import kotlinx.coroutines.Dispatchers
@@ -25,7 +24,7 @@ class HousesRepositoryImpl (
         }
     }
 
-    override suspend fun getCurrentHouse(): LiveData<UsableHouseData> {
+    override suspend fun getCurrentHouse(): LiveData<HouseData> {
         return withContext(Dispatchers.IO) {
             initHouseData()
             houseListDao.getHouses()

@@ -21,7 +21,7 @@ data class DataX(
     @Embedded(prefix = "media_")
     var media: Any? = null,
     var price: Int = 0,
-    var `protected`: Int = 0,
+    var protected: Int = 0,
     @SerializedName("seo_desc")
     var seoDesc: String = "",
     @SerializedName("seo_title")

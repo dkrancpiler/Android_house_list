@@ -7,8 +7,7 @@ data class Cover(
     var background: String,
     @Embedded (prefix = "description_")
     var description: Any,
-    @Embedded (prefix = "id_")
-    var id: Any,
+    var id: String?,
     var title: String,
     var type: String
 )
