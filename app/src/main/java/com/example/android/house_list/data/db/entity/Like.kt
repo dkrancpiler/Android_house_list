@@ -1,4 +1,4 @@
-package com.example.android.house_list.data.response
+package com.example.android.house_list.data.db.entity
 
 
 data class Like(
