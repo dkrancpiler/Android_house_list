@@ -1,17 +1,19 @@
 package com.example.android.house_list.data.db.entity
 
 
+import androidx.room.Embedded
 import com.google.gson.annotations.SerializedName
 
 data class City(
     @SerializedName("country_id")
-    val countryId: Int,
-    val id: Int,
-    val lat: Double,
-    val lng: Double,
-    val polygon: Any,
+    var countryId: Int,
+    var id: Int,
+    var lat: Double,
+    var lng: Double,
+    @Embedded(prefix = "polygon_")
+    var polygon: Any,
     @SerializedName("region_id")
-    val regionId: Int,
-    val slug: String,
-    val title: String
+    var regionId: Int,
+    var slug: String,
+    var title: String
 )

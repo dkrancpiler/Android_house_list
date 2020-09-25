@@ -1,10 +1,14 @@
 package com.example.android.house_list.data.db.entity
 
+import androidx.room.Embedded
+
 
 data class Cover(
-    val background: String,
-    val description: Any,
-    val id: Any,
-    val title: String,
-    val type: String
+    var background: String,
+    @Embedded (prefix = "description_")
+    var description: Any,
+    @Embedded (prefix = "id_")
+    var id: Any,
+    var title: String,
+    var type: String
 )
